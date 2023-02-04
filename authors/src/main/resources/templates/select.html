@@ -1,0 +1,28 @@
+<html xmls:ns = https://www.thymeleaf.org>
+    <head>
+        <title>Elenco autori :</title>
+    </head>
+
+    <body>
+        <table border=1>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Paese</th>
+            <!--<th th:text = "'Autori : ' + contatore"></th>-->
+
+            <tr th:each = "autori:${elenco}">
+                <td th:text = "${autori.id}"></td>
+                <td th:text = "${autori.nome}"></td>
+                <td th:text = "${autori.data}"></td>
+                <td th:text = "${autori.paese}"></td>
+                <td>
+                    <form method = post action = "/elimina">
+                        <input type = "hidden" name = "id" th:value = "${autori.id}"> 
+                        <input type = "submit" name = "elimina" value = "elimina">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
